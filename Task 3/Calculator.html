@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Easy Number Tool</title>
+
+    <script>
+        function calculate(form, action) {
+
+            let a = Number(form.numOne.value);
+            let b = Number(form.numTwo.value);
+            let result;
+
+            if (isNaN(a) || isNaN(b)) {
+                result = "Enter numbers only";
+            } 
+            else {
+                switch (action) {
+                    case "add":
+                        result = a + b;
+                        break;
+                    case "sub":
+                        result = a - b;
+                        break;
+                    case "mul":
+                        result = a * b;
+                        break;
+                    case "div":
+                        result = (b === 0) ? "Cannot divide by zero" : a / b;
+                        break;
+                }
+            }
+
+            form.answer.value = result;
+        }
+    </script>
+</head>
+
+<body>
+
+<h2>Easy Number Tool</h2>
+
+<form>
+    Number 1:
+    <input type="text" name="numOne"><br><br>
+
+    Number 2:
+    <input type="text" name="numTwo"><br><br>
+
+    <input type="button" value="Add" onclick="calculate(this.form,'add')">
+    <input type="button" value="Subtract" onclick="calculate(this.form,'sub')">
+    <input type="button" value="Multiply" onclick="calculate(this.form,'mul')">
+    <input type="button" value="Divide" onclick="calculate(this.form,'div')"><br><br>
+
+  
+</form>
+
+</body>
+</html>
